@@ -1,5 +1,3 @@
-from sentry_sdk.integrations.google_genai.utils import extract_tool_calls
-
 from spotter.users.models import UserIntake, UserProfile
 
 
