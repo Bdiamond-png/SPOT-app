@@ -72,3 +72,9 @@ class GoalsIntake(BaseModel):
     lagging_muscles: List[MusclesGroup]
     target_muscles: List[MusclesGroup]
     training_focus: MainFocus
+
+class GoalsProfile(BaseModel):
+    goals_summary: GoalsIntake
+    summary_str: str
+
+
