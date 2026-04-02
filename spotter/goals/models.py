@@ -77,4 +77,3 @@ class GoalsProfile(BaseModel):
     goals_summary: GoalsIntake
     summary_str: str
 
-
