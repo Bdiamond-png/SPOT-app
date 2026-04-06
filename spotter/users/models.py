@@ -28,6 +28,7 @@ class UserIntake(BaseModel):
     main_goal: MainGoal
 
 class UserProfile(BaseModel):
+    user_id: str
     health_grade: float
     intake_data: UserIntake
 

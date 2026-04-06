@@ -74,6 +74,7 @@ class GoalsIntake(BaseModel):
     training_focus: MainFocus
 
 class GoalsProfile(BaseModel):
+    goals_id: str
     goals_summary: GoalsIntake
     summary_str: str
 
