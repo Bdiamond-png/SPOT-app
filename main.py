@@ -1,11 +1,15 @@
 import fastapi
 import uvicorn
+from dotenv import load_dotenv
 from spotter.subjectgate.services import goals_feasibility
 from spotter.goals.models import GoalsIntake, GoalsProfile
 from spotter.users.models import UserIntake, UserProfile
 from spotter.users.services import profile_creation
 from spotter.goals.services import create_goals
+
+load_dotenv()
 app = fastapi.FastAPI()
+
 
 @app.get("/")
 def read_root():
