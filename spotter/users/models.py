@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from enum import Enum
 
 from main import user_subject
@@ -25,7 +25,9 @@ class UserIntake(BaseModel):
     gender: str
     height: float
     weight: float
-    body_fat_percent: float
+    waist_inches: float
+    neck_inches:float
+    hip_inches:Optional[float] = None
     experience_level: ExperienceLevel
     health_issues: List[str]
     main_goal: MainGoal
@@ -34,5 +36,3 @@ class UserProfile(BaseModel):
     user_id: str
     health_grade: float
     intake_data: UserIntake
-
-#users needs UserProfile, user_id, health_grade, name, age, gender

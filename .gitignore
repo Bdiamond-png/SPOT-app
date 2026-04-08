@@ -208,3 +208,4 @@ __marimo__/
 *.pyc
 .DS_Store
 .idea/
+practice_problems.py
