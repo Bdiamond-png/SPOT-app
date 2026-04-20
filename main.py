@@ -1,6 +1,6 @@
-import fastapi
 import uvicorn
 from dotenv import load_dotenv
+load_dotenv()
 from contextlib import asynccontextmanager
 from sqlalchemy.orm import Session
 from core.database.db_setup import engine, sessionLocal
@@ -11,7 +11,7 @@ from spotter.users.models import UserIntake, UserProfile
 from spotter.users.services import profile_creation
 from spotter.goals.services import create_goals
 from core.database.db_tables import Base
-load_dotenv()
+import fastapi
 
 
 @asynccontextmanager

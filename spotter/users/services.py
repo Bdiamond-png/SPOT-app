@@ -24,7 +24,7 @@ def profile_creation(profile_info: UserIntake, db: Session) -> Users:
         neck_inches=profile_info.neck_inches,
         hip_inches=profile_info.hip_inches,
         bf_percent=calculate_bf,
-        heath_issues=profile_info.heath_issues,
+        health_issues=profile_info.health_issues,
     )
     try:
         db.add(new_db_user)
