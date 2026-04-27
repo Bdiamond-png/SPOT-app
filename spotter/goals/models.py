@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from enum import Enum
 from typing import List
 
+
 class PerExercise(BaseModel):
     reps_per_compound: int
     reps_per_isolation: int

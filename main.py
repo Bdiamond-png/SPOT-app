@@ -11,18 +11,17 @@ from spotter.users.models import UserIntake, UserProfile
 from spotter.users.services import profile_creation
 from spotter.goals.services import create_goals
 from core.database.db_tables import Base
-import fastapi
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(_: FastAPI):
     Base.metadata.create_all(bind=engine)
     print("Database synchronized")
     yield
     engine.dispose()
     print("shutting down")
 
-app = fastapi.FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan)
 
 def get_db():
     db = sessionLocal()
@@ -41,8 +40,8 @@ def user_intake(profile_info: UserIntake, db: Session = Depends(get_db)):
      return new_user
 
 @app.post("/new_goal")
-def user_goal(goals_info: GoalsIntake, db: Session = Depends(get_db)):
-    new_goal = create_goals(goals_info, db)
+def user_goal(user_id: str, goals_info: GoalsIntake, db: Session = Depends(get_db)):
+    new_goal = create_goals(user_id, goals_info, db)
     return new_goal
 
 @app.post("/new_subject")
