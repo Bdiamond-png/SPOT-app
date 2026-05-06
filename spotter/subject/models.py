@@ -1,10 +1,14 @@
 from pydantic import BaseModel
-
-from spotter.goals.models import GoalsProfile
-from spotter.users.models import UserProfile
+from pydantic import ConfigDict
+from spotter.users.models import UserIntake
+from spotter.goals.models import GoalsIntake
 
 
 class Subject(BaseModel):
-    subject_user: UserProfile
-    subject_goals: GoalsProfile
+    model_config = ConfigDict(
+        arbitrary_types_allowed=True,
+        from_attributes=True
+    )
+    subject_user: UserIntake
+    subject_goals: GoalsIntake
     

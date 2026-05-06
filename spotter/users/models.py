@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import List, Optional
 from enum import Enum
-
+from pydantic import ConfigDict
 class ExperienceLevel(Enum):
     BEGINNER = 1
     INTERMEDIATE = 2
@@ -21,6 +21,10 @@ class UserGender(Enum):
     Male = 2
 
 class UserIntake(BaseModel):
+    model_config = ConfigDict(
+        from_attributes=True,
+        arbitrary_types_allowed=True
+    )
     name: str
     age: int
     gender: UserGender

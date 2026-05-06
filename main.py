@@ -5,9 +5,9 @@ from contextlib import asynccontextmanager
 from sqlalchemy.orm import Session
 from core.database.db_setup import engine, sessionLocal
 from fastapi import FastAPI, Depends
-from spotter.subjectgate.services import goals_feasibility
-from spotter.goals.models import GoalsIntake, GoalsProfile
-from spotter.users.models import UserIntake, UserProfile
+from spotter.subject.services import merge_into_subject
+from spotter.goals.models import GoalsIntake
+from spotter.users.models import UserIntake
 from spotter.users.services import profile_creation
 from spotter.goals.services import create_goals
 from core.database.db_tables import Base
@@ -45,8 +45,8 @@ def user_goal(user_id: str, goals_info: GoalsIntake, db: Session = Depends(get_d
     return new_goal
 
 @app.post("/new_subject")
-def user_subject(final_user: UserProfile, final_goals: GoalsProfile, db: Session = Depends(get_db)):
-    new_subject = goals_feasibility(final_user, final_goals, db)
+def user_subject(user_id: str, db: Session = Depends(get_db)):
+    new_subject = merge_into_subject(user_id, db)
     return new_subject
 
 if __name__ == "__main__":

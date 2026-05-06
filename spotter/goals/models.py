@@ -1,15 +1,7 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from enum import Enum
 from typing import List
 
-
-class PerExercise(BaseModel):
-    reps_per_compound: int
-    reps_per_isolation: int
-    sets_per_compound: int
-    sets_per_isolation: int
-    reps_in_reserve_for_compound: int
-    reps_in_reserve_for_isolation: int
 
 
 class WorkoutEquipmentUsed(Enum):
@@ -36,14 +28,6 @@ class WorkoutStyle(Enum):
     combat_sports_training = 6
     strong_man = 7
 
-class UserBaseline(BaseModel):
-    last_time_consistent: int
-    days_per_week: int
-    exercise_volume: PerExercise
-    users_equipment: WorkoutEquipmentUsed
-    exercise_split: WorkoutSplit
-    training_method: WorkoutStyle
-
 class MainFocus(Enum):
     max_upper_body_strength = 1
     max_upper_body_muscle_growth = 2
@@ -67,7 +51,21 @@ class MusclesGroup(Enum):
     calves = 11
 
 class GoalsIntake(BaseModel):
-    new_subject: UserBaseline
+    model_config = ConfigDict(
+        from_attributes=True,
+        arbitrary_types_allowed=True
+    )
+    last_time_consistent: int
+    days_per_week: int
+    reps_per_compound: int
+    reps_per_isolation: int
+    sets_per_compound: int
+    sets_per_isolation: int
+    reps_in_reserve_for_compound: int
+    reps_in_reserve_for_isolation: int
+    users_equipment: WorkoutEquipmentUsed
+    exercise_split: WorkoutSplit
+    training_method: WorkoutStyle
     time_frame: int
     til_failure: int
     lagging_muscles: List[MusclesGroup]
@@ -78,4 +76,3 @@ class GoalsProfile(BaseModel):
     goals_id: str
     goals_summary: GoalsIntake
     summary_str: str
-
