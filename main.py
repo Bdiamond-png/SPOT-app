@@ -11,6 +11,7 @@ from spotter.users.models import UserIntake
 from spotter.users.services import profile_creation
 from spotter.goals.services import create_goals
 from core.database.db_tables import Base
+from spotter.subjectgate.services import validate_style
 
 
 @asynccontextmanager
@@ -47,6 +48,7 @@ def user_goal(user_id: str, goals_info: GoalsIntake, db: Session = Depends(get_d
 @app.post("/new_subject")
 def user_subject(user_id: str, db: Session = Depends(get_db)):
     new_subject = merge_into_subject(user_id, db)
+    validate_style(new_subject)
     return new_subject
 
 if __name__ == "__main__":

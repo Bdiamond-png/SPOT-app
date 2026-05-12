@@ -8,4 +8,13 @@ Each entry should include:
 - How it was resolved
 
 ## Entries
-_No entries yet_
+5/12/2026
+built a dictionary for valid styles. This dictionary
+is to be used to reject or accept a users goals
+and training method/style. If a user has a goal of
+gaining strength yet chooses a style of training contradictory 
+of strength gaining like body building then that users request
+is rejected. They shall receive an error message.
+The other approach is hardcode each option inside the validation function. 
+I chose a dictionary for easy mutability later and simplicity for other 
+engineers to read about. 
