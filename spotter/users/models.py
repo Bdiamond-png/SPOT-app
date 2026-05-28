@@ -2,6 +2,8 @@ from pydantic import BaseModel
 from typing import List, Optional
 from enum import Enum
 from pydantic import ConfigDict
+
+
 class ExperienceLevel(Enum):
     BEGINNER = 1
     INTERMEDIATE = 2

@@ -10,7 +10,12 @@ class WorkoutEquipmentUsed(Enum):
     bodyweight = 3
     kettlebell = 4
     resistance_bands = 5
-    mixed_workout_equipment = 6
+    cables = 6
+    barbell = 7
+    dumbbell = 8
+    bench = 9
+    pull_up_bar = 10
+    mixed_workout_equipment = 11
 
 class WorkoutSplit(Enum):
     push_pull_legs = 1
@@ -49,6 +54,12 @@ class MusclesGroup(Enum):
     hamstrings = 9
     quads = 10
     calves = 11
+    abs = 12
+    low_back = 13
+    traps = 14
+    hip_flexors = 15
+    obliques = 16
+    rotator_cuff = 17
 
 class GoalsIntake(BaseModel):
     model_config = ConfigDict(

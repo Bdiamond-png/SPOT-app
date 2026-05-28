@@ -43,4 +43,4 @@ I evaluated rounds of API's including API ninjas & ExerciseDB as exercise data s
 I rejected due to inconsistent categorization, missing muscle groups, and poor mapping to movement pattern
 schema. 
 
-My decision is to build my on exercise table in Supabase with full control over my schema. 
+My decision is to build my own exercise table in Supabase with full control over my schema. 
