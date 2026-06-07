@@ -31,3 +31,16 @@ CREATE TABLE exercise_relationships (
     related_exercise_id UUID REFERENCES exercise(id),
     exercise_relationship_type public.relationship_type
 );
+
+CREATE TABLE workout_styles (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE exercise_workout_style_scores (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    exercise_id UUID NOT NULL REFERENCES exercise(id) ON DELETE CASCADE,
+    workout_style_id UUID NOT NULL REFERENCES workout_styles(id) ON DELETE CASCADE,
+    score INT NOT NULL CHECK(score BETWEEN 0 AND 10),
+    UNIQUE(exercise_id, workout_style_id)
+);
