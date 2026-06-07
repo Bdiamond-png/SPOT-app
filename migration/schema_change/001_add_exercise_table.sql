@@ -12,3 +12,13 @@ CREATE TABLE exercise (
     assisting_muscles public.muscle_enum_type[],
     is_isolation BOOLEAN
 );
+
+ALTER TABLE exercise ADD COLUMN weight_score INT CHECK (weight_score BETWEEN 1 AND 100)
+ALTER TABLE exercise ADD COLUMN hypertrophy_score INT CHECK (hypertrophy_score BETWEEN 1 AND 10);
+ALTER TABLE exercise ADD COLUMN strength_score INT CHECK (strength_score BETWEEN 1 AND 10);
+ALTER TABLE exercise ADD COLUMN fatigue_cost INT CHECK (fatigue_cost BETWEEN 1 AND 10);
+ALTER TABLE exercise ADD COLUMN stability_demand INT CHECK (stability_demand BETWEEN 0 AND 3);
+ALTER TABLE exercise ADD COLUMN skill_requirement public.experiencelevel;
+ALTER TABLE exercise ADD COLUMN athletic_transfer_score INT CHECK (athletic_transfer_score BETWEEN 1 AND 10);
+ALTER TABLE exercise ADD COLUMN requires_bench BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE exercise ADD COLUMN requires_spotter BOOLEAN NOT NULL DEFAULT FALSE;
