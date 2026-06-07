@@ -22,3 +22,12 @@ ALTER TABLE exercise ADD COLUMN skill_requirement public.experiencelevel;
 ALTER TABLE exercise ADD COLUMN athletic_transfer_score INT CHECK (athletic_transfer_score BETWEEN 1 AND 10);
 ALTER TABLE exercise ADD COLUMN requires_bench BOOLEAN NOT NULL DEFAULT FALSE;
 ALTER TABLE exercise ADD COLUMN requires_spotter BOOLEAN NOT NULL DEFAULT FALSE;
+
+CREATE TYPE public.relationship_type AS ENUM ('progression', 'regression', 'equal_level');
+
+CREATE TABLE exercise_relationships (
+    ID UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    exercise_id UUID REFERENCES exercise(id),
+    related_exercise_id UUID REFERENCES exercise(id),
+    exercise_relationship_type public.relationship_type
+);
