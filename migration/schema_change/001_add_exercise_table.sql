@@ -2,6 +2,8 @@ CREATE TYPE public.movementpattern AS ENUM ('horizontal_pull','vertical_pull',
 'horizontal_push', 'vertical_push','squat', 'hinge', 'unilateral', 'isometric',
 'transverse', 'plyometric');
 
+CREATE TYPE public.experiencelevel AS ENUM ('BEGINNER', 'INTERMEDIATE', 'ADVANCED');
+
 CREATE TABLE exercise (
     ID UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     name VARCHAR(50) NOT NULL,
