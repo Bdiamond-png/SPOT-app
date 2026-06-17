@@ -64,3 +64,11 @@ thousands of rows. For an MVP I decided this is something I'll fix later after t
 
 Also figured out I cannot run scripts through ubuntu, my venv is created through windows locally in PyCharm, so I can only 
 run scripts from there. I use ubuntu for obvious reasons, but mostly because it's more effective for Github and file management. 
+
+
+I ran into a bug, after the script ran and I checked how everything mapped out. Squat didn't have any primary muscles because
+in my exercise_muscles table I wrote quad in the database table but quads in the script. This is dangerous because is failed 
+silently if I had not ran an SQL query to read how each muscles mapped in the exercise_muscles table I would have never known.
+Quads is the correct spelling, so I updated the column to represent 'quads', cleared the table and reran the script. 
+I learned that I should have my seed scripts to warn on empty lookups rather than skip silently.
+

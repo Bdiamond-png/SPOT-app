@@ -72,6 +72,8 @@ try:
 
         for group_name, role in muscle_list:
             muscle_ids = muscle_lookup[group_name]
+            if not muscle_ids:
+                print(f" Group '{group_name}' in pattern '{pattern_name}' returned no muscles")
             for muscle_id in muscle_ids:
                 db.execute(text("""
                 INSERT INTO exercise_muscles (movement_pattern_id, muscles_id, role)
