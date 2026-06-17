@@ -11,10 +11,12 @@ class MovementPattern(Enum):
     vertical_push = 4
     squat = 5
     hinge = 6
-    unilateral = 7
-    isometric = 8
-    transverse = 9
-    plyometric = 10
+
+class ExerciseModifiers(Enum):
+    unilateral = 1
+    isometric = 2
+    transverse = 3
+    plyometric = 4
 
 
 class ExerciseDesignation(Enum):
