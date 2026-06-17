@@ -44,3 +44,23 @@ I rejected due to inconsistent categorization, missing muscle groups, and poor m
 schema. 
 
 My decision is to build my own exercise table in Supabase with full control over my schema. 
+
+6/15/2026
+Population of the muscles table helped me to realize that I might need to group singular muscles out into thier respective muscle
+groups. For example rectus femoris belongs to the quads muscle group. Even though this definetly makes the program more complex
+it also lets the user get better results when generating their personalized program.
+
+6/16/2026
+In filling in the tables I realized that some of my initial thought for movement patterns are actually movement modifiers.
+Isometric, plyometric and unilateral are ways in which you can modify an exercise but don't fit the mold of actual movement patterns
+including primary and assisting muscles etc. Now that I have realized that I may create another table named exercise modifiers
+to give these modifiers a place to be called from explicitly. As of now this is a bug I will fix later. 
+
+6/17/2026
+After creating a script to map muscles to movement patterns I realized that forearms as an assisting muscle for hinging 
+isn't exactly correct. Though including deadlift variations forearms are certainly an assisting muscle group, exercises like
+glute bridges and hip thrust don't use forearms at all. To fix this I need to map muscles to each individual exercise creating
+thousands of rows. For an MVP I decided this is something I'll fix later after the MVP is running.
+
+Also figured out I cannot run scripts through ubuntu, my venv is created through windows locally in PyCharm, so I can only 
+run scripts from there. I use ubuntu for obvious reasons, but mostly because it's more effective for Github and file management. 

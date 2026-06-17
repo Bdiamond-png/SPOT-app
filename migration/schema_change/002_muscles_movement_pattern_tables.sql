@@ -37,3 +37,5 @@ ALTER TABLE user_goals DROP COLUMN target_muscles;
 ALTER TABLE user_goals DROP COLUMN lagging_muscles;
 ALTER TABLE exercise ADD COLUMN movement_pattern_id UUID REFERENCES movement_pattern(id) ON DELETE CASCADE;
 ALTER TABLE exercise ADD COLUMN exercise_muscles_id UUID REFERENCES exercise_muscles(id) ON DELETE CASCADE;
+
+ALTER TABLE movement_pattern ADD COLUMN description TEXT;
