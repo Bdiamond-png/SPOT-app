@@ -5,17 +5,15 @@ from typing import List
 
 
 class WorkoutEquipmentUsed(Enum):
-    free_weights = 1
-    machines = 2
-    bodyweight = 3
-    kettlebell = 4
-    resistance_bands = 5
-    cables = 6
-    barbell = 7
-    dumbbell = 8
-    bench = 9
-    pull_up_bar = 10
-    mixed_workout_equipment = 11
+    machines = 1
+    bodyweight = 2
+    kettlebell = 3
+    resistance_bands = 4
+    cables = 5
+    barbell = 6
+    dumbbell = 7
+    pull_up_bar = 8
+    mixed_workout_equipment = 9
 
 class WorkoutSplit(Enum):
     push_pull_legs = 1

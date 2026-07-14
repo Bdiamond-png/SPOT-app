@@ -38,3 +38,7 @@ CREATE TABLE exercise_workout_style_scores (
     score INT NOT NULL CHECK(score BETWEEN 0 AND 10),
     UNIQUE(exercise_id, workout_style_id)
 );
+
+
+ALTER TABLE exercise DROP COLUMN weight_score;
+ALTER TABLE exercise DROP COLUMN skill_requirement;

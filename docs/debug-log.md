@@ -72,3 +72,13 @@ silently if I had not ran an SQL query to read how each muscles mapped in the ex
 Quads is the correct spelling, so I updated the column to represent 'quads', cleared the table and reran the script. 
 I learned that I should have my seed scripts to warn on empty lookups rather than skip silently.
 
+7/13/26
+
+
+removing the weight score colum from the exercise table. This decision was made because
+intensity varies by training style, not by exercise. It was modeled at the wrong level. Intensity will be deferred entirely
+for the MVP. 
+
+
+In scoring my first exercise I realize that fatigue isn't just one category. There is muscle fatigue, CNS fatigue, and recovery
+fatigue/demand. Instead of creating another table just for scoring fatigue now, I am deferring it from the MVP. 
