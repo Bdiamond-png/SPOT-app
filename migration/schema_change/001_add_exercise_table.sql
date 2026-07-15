@@ -42,3 +42,4 @@ CREATE TABLE exercise_workout_style_scores (
 
 ALTER TABLE exercise DROP COLUMN weight_score;
 ALTER TABLE exercise DROP COLUMN skill_requirement;
+ALTER TABLE exercise DROP COLUMN exercise_muscles_id;
