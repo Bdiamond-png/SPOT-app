@@ -39,3 +39,9 @@ ALTER TABLE exercise ADD COLUMN movement_pattern_id UUID REFERENCES movement_pat
 ALTER TABLE exercise ADD COLUMN exercise_muscles_id UUID REFERENCES exercise_muscles(id) ON DELETE CASCADE;
 
 ALTER TABLE movement_pattern ADD COLUMN description TEXT;
+
+
+SELECT DISTINCT em.movement_pattern_id
+FROM exercise_muscles em
+JOIN muscles m ON em.muslces_id = m.id
+WHERE m.muscles_group = 'chest' AND em.role = 'primary'
