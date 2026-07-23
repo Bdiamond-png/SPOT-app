@@ -93,3 +93,33 @@ except Exception as e:
     raise e
 finally:
     db.close()
+    a_candidates = db.execute(
+        text("""
+            SELECT
+                id,
+                name,
+                movement_pattern_id,
+                equipment,
+                difficulty,
+                is_isolation
+            FROM exercise
+            WHERE movement_pattern_id = :movement_pattern_id
+              AND is_isolation = FALSE
+        """),
+        {"movement_pattern_id": movement_pattern_id}
+    ).fetchall()
+    b_candidates = db.execute(
+        text("""
+        SELECT
+            id,
+            name,
+            movement_pattern_id,
+            equipment,
+            difficulty,
+            is_isolation
+        FROM exercise
+        WHERE movement_pattern_id = :movement_pattern_id
+          AND is_isolation = TRUE
+          """),
+        {"movement_pattern_id": movement_pattern_id}
+    ).fetchall()

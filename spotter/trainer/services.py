@@ -15,3 +15,33 @@ def create_new_program(subject_to_program:Subject, db: Session) -> Program:
     movement_pattern_id = result.scalar()
     if movement_pattern_id is None:
         raise HTTPException(status_code=500, detail=f"No primary movement pattern found for target muscle: {target_muscle}")
+    a_candidates = db.execute(
+        text("""
+                SELECT
+                    id,
+                    name,
+                    movement_pattern_id,
+                    equipment,
+                    difficulty,
+                    is_isolation
+                FROM exercise
+                WHERE movement_pattern_id = :movement_pattern_id
+                  AND is_isolation = FALSE
+            """),
+        {"movement_pattern_id": movement_pattern_id}
+    ).fetchall()
+    b_candidates = db.execute(
+        text("""
+            SELECT
+                id,
+                name,
+                movement_pattern_id,
+                equipment,
+                difficulty,
+                is_isolation
+            FROM exercise
+            WHERE movement_pattern_id = :movement_pattern_id
+              AND is_isolation = TRUE
+              """),
+        {"movement_pattern_id": movement_pattern_id}
+    ).fetchall()
