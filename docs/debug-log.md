@@ -82,3 +82,8 @@ for the MVP.
 
 In scoring my first exercise I realize that fatigue isn't just one category. There is muscle fatigue, CNS fatigue, and recovery
 fatigue/demand. Instead of creating another table just for scoring fatigue now, I am deferring it from the MVP. 
+
+
+In creating the MVP my main goal as of today is to output a single circuit AAB (which will be the base for each program).
+The first circut only uses target_muscles[0] (multi-muscle orchestration deferred). Circuit built around the muscle's primary 
+movement pattern. Multi-target -> multi-circuit mapping later layer. 

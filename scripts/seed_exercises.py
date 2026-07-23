@@ -18,6 +18,48 @@ exercises = [
         "stability_demand": 2,
         "athletic_transfer_score": 5,
     },
+    {
+        "name": "dumbbell_bench_press",
+        "equipment": "dumbbell",
+        "difficulty": "INTERMEDIATE",
+        "movement_pattern": "horizontal_push",
+        "is_isolation": False,
+        "requires_bench": True,
+        "requires_spotter": False,
+        "hypertrophy_score": 10,
+        "strength_score": 8,
+        "fatigue_cost": 7,
+        "stability_demand": 3,
+        "athletic_transfer_score": 6
+    },
+    {
+        "name": "push_up",
+        "equipment": "bodyweight",
+        "difficulty": "BEGINNER",
+        "movement_pattern": "horizontal_push",
+        "is_isolation": False,
+        "requires_bench": False,
+        "requires_spotter": False,
+        "hypertrophy_score": 7,
+        "strength_score": 6,
+        "fatigue_cost": 4,
+        "stability_demand": 2,
+        "athletic_transfer_score": 7
+    },
+    {
+        "name": "cable_chest_fly",
+        "equipment": "cables",
+        "difficulty": "BEGINNER",
+        "movement_pattern": "horizontal_push",
+        "is_isolation": True,
+        "requires_bench": False,
+        "requires_spotter": False,
+        "hypertrophy_score": 9,
+        "strength_score": 2,
+        "fatigue_cost": 3,
+        "stability_demand": 2,
+        "athletic_transfer_score": 7
+    }
 ]
 try:
     pattern_lookup = {}
